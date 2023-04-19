@@ -1,0 +1,598 @@
+/* Basic styling */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f2f0f8;
+}
+
+
+/* ------------- navbar start -------------- */
+
+nav {
+    background: #222;
+    padding: 5px 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.logo a:hover {
+    text-decoration: none;
+}
+
+.menu li {
+    font-size: 16px;
+    padding: 15px 5px;
+    white-space: nowrap;
+}
+
+.logo a,
+.toggle a {
+    font-size: 20px;
+}
+
+.button.secondary {
+    border-bottom: 1px #444 solid;
+}
+
+
+/* Mobile menu */
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle {
+    order: 1;
+}
+
+.item.button {
+    order: 2;
+}
+
+.item {
+    width: 100%;
+    text-align: center;
+    order: 3;
+    display: none;
+}
+
+.item.active {
+    display: block;
+}
+
+
+/* Navbar Toggle */
+
+.toggle {
+    cursor: pointer;
+}
+
+.bars {
+    background: #999;
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    transition: 2s ease-out;
+    width: 18px;
+}
+
+.bars:before,
+.bars:after {
+    background: #999;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+.bars:before {
+    top: 5px;
+}
+
+.bars:after {
+    top: -5px;
+}
+
+
+/* Tablet menu */
+
+@media all and (min-width: 468px) {
+    .menu {
+        justify-content: center;
+    }
+    .logo {
+        flex: 1;
+    }
+    .item.button {
+        width: auto;
+        order: 1;
+        display: block;
+    }
+    .toggle {
+        order: 2;
+    }
+    .button.secondary {
+        border: 0;
+    }
+    .button a {
+        padding: 7.5px 15px;
+        background: teal;
+        border: 1px #006d6d solid;
+        border-radius: 50em;
+    }
+    .button.secondary a {
+        background: transparent;
+    }
+    .button a:hover {
+        text-decoration: none;
+        transition: all .25s;
+    }
+    .button:not(.secondary) a:hover {
+        background: #006d6d;
+        border-color: #005959;
+    }
+    .button.secondary a:hover {
+        color: #ddd;
+    }
+}
+
+
+/* Desktop menu */
+
+@media all and (min-width: 768px) {
+    .item {
+        display: block;
+        width: auto;
+    }
+    .toggle {
+        display: none;
+    }
+    .logo {
+        order: 0;
+    }
+    .item {
+        order: 1;
+    }
+    .button {
+        order: 2;
+    }
+    .menu li {
+        padding: 15px 10px;
+    }
+    .menu li.button {
+        padding-right: 0;
+    }
+}
+
+
+/* ------------- navbar end -------------- */
+
+
+/* ------------- home page  start -------------- */
+
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.right img {
+    width: 100%;
+}
+
+.left {
+    max-width: 45%;
+    padding: 40px 64px;
+}
+
+.right {
+    padding: 40px 48px;
+}
+
+.title {
+    color: #ff5360;
+    font-size: 3.2em;
+    width: 50%;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 48px;
+}
+
+.msg {
+    color: #9fb5cc;
+    font-size: 1.1em;
+    letter-spacing: 0.7px;
+    line-height: 32px;
+    margin-bottom: 48px;
+}
+
+button.cta {
+    border: none;
+    outline: none;
+    background-color: #5e4780;
+    color: #fff;
+    padding: 18px 32px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1), 0 15px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: opacity 0.9;
+}
+
+button.cta:hover {
+    opacity: 0.9;
+}
+
+
+/* ------------- home page end  -------------- */
+
+
+/* ------------- slider start -------------- */
+
+.slide {
+    height: 190px;
+    width: 300px;
+    display: grid;
+    place-items: center;
+    padding: 15px;
+    perspective: 100px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    transition: transform 1s;
+}
+
+.image-slider {
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    width: 100%;
+}
+
+.image-slider-track {
+    display: flex;
+    width: calc(300px*12);
+    animation: play 40s linear infinite;
+}
+
+@keyframes play {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-250px*6));
+    }
+}
+
+img:hover {
+    transform: translateZ(20px);
+}
+
+
+/* ------------- slider end  -------------- */
+
+
+/* ------------- event page start -------------- */
+
+.course-title {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 34px;
+    color: #000;
+    margin: 50px;
+}
+
+.event {
+    height: 140%;
+}
+
+.le {
+    max-width: 40%;
+    padding: 40px 64px;
+}
+
+.image-gallery {
+    max-width: 320px;
+    margin: 50px;
+    float: right;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 30%;
+    border: 4px solid #ededed;
+    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+}
+
+ul.thumbnails {
+    margin: 0px 0px 25px 0px;
+    display: flex;
+    flex-direction: row;
+    padding: 100px;
+    justify-content: center;
+}
+
+ul.thumbnails li {
+    margin: 0 15px;
+    padding: 10px;
+}
+
+ul.thumbnails li a img {
+    border: 4px solid #ededed;
+    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+    max-width: 140px;
+    border-radius: 30%;
+}
+
+
+/* ------------- event page end -------------- */
+
+
+/* ------------- oportunity page start  -------------- */
+
+:root {
+    --color-white: hsl(252, 30%, 100%);
+    --color-primary: hsl(352, 75%, 60%);
+    --color-primary-light: hsl(14, 59%, 55%, 12%);
+    --font-medium: 400;
+    --font-semi-bold: 600;
+    --m-1: 1rem;
+}
+
+.text_1 {
+    animation: text1;
+}
+
+.text_2 {
+    animation: text2;
+}
+
+.text_1,
+.text_2 {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+    animation-duration: 20s;
+    animation-timing-function: steps(10, end);
+    animation-iteration-count: infinite;
+    color: rgb(106, 6, 236)
+}
+
+.text_1::after,
+.text_2::after {
+    content: "|";
+    position: absolute;
+    right: 0;
+    animation-timing-function: steps(1, end);
+}
+
+@keyframes text2 {
+    0%,
+    50%,
+    100% {
+        width: 0;
+    }
+    60%,
+    90% {
+        width: 17em;
+    }
+}
+
+@keyframes text1 {
+    0%,
+    50%,
+    100% {
+        width: 0;
+    }
+    10%,
+    40% {
+        width: 17em;
+    }
+}
+
+@keyframes caret {
+    0%,
+    100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.job {
+    display: flex;
+    height: 100vh;
+    min-height: 100vh;
+}
+
+.job .profile-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.job .profile-area .outer-circle {
+    width: 25rem;
+    height: 25rem;
+    border: 1px solid var(--color-primary);
+    border-radius: 50%;
+    position: relative;
+    animation: move 30s linear infinite;
+}
+
+@keyframes move {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.job .profile-area .outer-circle span {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    position: absolute;
+    background: var(--color-white);
+    color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 1rem var(--color-primary-light);
+}
+
+.job .profile-area .outer-circle span:nth-child(1) {
+    left: calc(50% - 2rem);
+    top: -2rem;
+}
+
+.job .profile-area .outer-circle span:nth-child(2) {
+    right: -2rem;
+    top: calc(50% - 2rem);
+}
+
+.job .profile-area .outer-circle span:nth-child(3) {
+    left: -2rem;
+    top: calc(50% - 2rem);
+}
+
+.job .profile-area .outer-circle span:nth-child(4) {
+    bottom: -2rem;
+    left: calc(50% - 2rem);
+}
+
+.job .profile-area .inner-circle {
+    position: absolute;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.job .intro {
+    max-width: 500px;
+}
+
+.job .intro img {
+    margin-bottom: var(--m-1);
+    transform: rotate(-0.99turn);
+    max-width: 100%;
+}
+
+.job .profile-area .outer-circle {
+    display: inline-block;
+    margin: 41px 27px;
+}
+
+.about-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*padding: 0 5rem;*/
+    margin-left: 200px;
+    text-align: right;
+}
+
+.about-right h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+.about-right h1 span {
+    color: #2f0c35;
+}
+
+.about-right h2 {
+    font-weight: 600;
+}
+
+.about-btns {
+    display: flex;
+    margin: 2rem 0;
+}
+
+.btn {
+    border: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    border: 2px solid #000;
+    border-radius: 20px;
+    padding: 0.55rem 0;
+    width: 130px;
+    font-weight: 600;
+    background: transparent;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+
+.btn.btn-pink {
+    background: #2f0c35;
+    color: #fff;
+    border-color: #2f0c35;
+    transition: all 0.5s ease-in-out;
+}
+
+.btn.btn-pink:hover {
+    background: transparent;
+    border-color: #2f0c35;
+    color: #000;
+}
+
+.btn.btn-white {
+    background: #2f0c35;
+    color: #fff;
+    border-color: #2f0c35;
+    transition: all 0.5s ease-in-out;
+}
+
+.btn.btn-white:hover {
+    background: transparent;
+    border-color: #2f0c35;
+    color: #000;
+}
+
+.btn.btn-white:hover {
+    background: #2f0c35;
+    border-color: #2f0c35;
+    color: #fff;
+}
+
+.job .container1 {
+    margin-left: 80px;
+    margin-top: 50px;
+}
+
+
+/* ------------- opportunity page end -------------- */
